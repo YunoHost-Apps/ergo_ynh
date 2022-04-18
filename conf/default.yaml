@@ -30,7 +30,7 @@ network:
 # server configuration
 server:
     # server name
-    name: ergo.test
+    name: ergo.YunoHost
 
     # addresses to listen on
     listeners:
