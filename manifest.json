@@ -1,0 +1,51 @@
+{
+    "name": "Ergo",
+    "id": "ergo",
+    "packaging_format": 1,
+    "description": {
+        "en": "A modern IRC server (daemon/ircd) written in Go",
+        "fr": "A modern IRC server (daemon/ircd) written in Go"
+    },
+    "version": "2.9.1~ynh1",
+    "url": "https://ergo.chat/",
+    "upstream": {
+        "license": "MIT",
+        "website": "https://ergo.chat/",
+        "demo": "https://testnet.ergo.chat/",
+        "admindoc": "https://github.com/ergochat/ergo/blob/stable/docs/MANUAL.md",
+        "userdoc": "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md",
+        "code": "https://github.com/ergochat/ergo"
+    },
+    "license": "MIT",
+    "maintainer": {
+        "name": "",
+        "email": ""
+    },
+    "requirements": {
+        "yunohost": ">= 4.3.0"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx",
+        "mysql"
+    ],
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "example": "/ergo",
+                "default": "/ergo"
+            },
+            {
+                "name": "is_public",
+                "type": "boolean",
+                "default": true
+            }
+        ]
+    }
+}

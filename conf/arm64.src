@@ -1,0 +1,7 @@
+SOURCE_URL=https://github.com/ergochat/ergo/releases/download/v2.9.1/ergo-2.9.1-linux-arm64.tar.gz
+SOURCE_SUM=1173dd01762e28710235491a8a2c3b786bf2848ca672b7d104ee870cdafd334b
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=
+SOURCE_EXTRACT=true
