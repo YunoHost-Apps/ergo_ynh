@@ -5,14 +5,14 @@
 
 # example configuration that works with Forum Systems's testing server:
 # https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/
-host: "ldap.forumsys.com"
+host: "ldap://127.0.0.1"
 port: 389
 timeout: 30s
 # uncomment for TLS:
 # use-ssl: true
 
 # example "single-bind" configuration, where we bind directly to the user's entry:
-bind-dn: "uid=%s,dc=example,dc=com"
+bind-dn: "ou=users,dc=yunohost,dc=org"
 
 # example "admin bind" configuration, where we bind to an initial admin user,
 # then search for the user's entry with a search filter:
