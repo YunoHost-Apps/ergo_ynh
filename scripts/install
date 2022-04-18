@@ -102,6 +102,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --time --weight=1
 
+server=$domain
 ynh_add_config --template="../conf/default.yaml" --destination="$final_path/ircd.yaml"
 ynh_add_config --template="../conf/ldap-config.yaml" --destination="$final_path/ldap-config.yaml"
 
