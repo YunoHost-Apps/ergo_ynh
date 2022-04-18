@@ -106,7 +106,7 @@ ynh_add_config --template="../conf/default.yaml" --destination="$final_path/ircd
 ynh_add_config --template="../conf/ldap-config.yaml" --destination="$final_path/ldap-config.yaml"
 
 chmod 400 "$final_path/ircd.yaml"
-chown $app:$app "$final_path/ircd.yaml"
+chown $app: "$final_path/ircd.yaml"
 
 #=================================================
 # SETUP SYSTEMD
