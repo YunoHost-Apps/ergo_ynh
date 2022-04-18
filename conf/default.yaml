@@ -787,7 +787,7 @@ languages:
 
     # default language to use for new clients
     # 'en' is the default English language in the code
-    default: en
+    default: __LANGUAGE__
 
     # which directory contains our language files
     path: languages
