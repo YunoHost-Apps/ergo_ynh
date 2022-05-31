@@ -25,7 +25,7 @@
 # network configuration
 network:
     # name of the network
-    name: ErgoTest
+    name: ErgoYunoHost
 
 # server configuration
 server:
@@ -37,8 +37,8 @@ server:
         # The standard plaintext port for IRC is 6667. Allowing plaintext over the
         # public Internet poses serious security and privacy issues. Accordingly,
         # we recommend using plaintext only on local (loopback) interfaces:
-        "127.0.0.1:6667": # (loopback ipv4, localhost-only)
-        "[::1]:6667":     # (loopback ipv6, localhost-only)
+        "0.0.0.0:__PORT__": # (loopback ipv4)
+        "[::]:__PORT__":     # (loopback ipv6, localhost-only)
         # If you need to serve plaintext on public interfaces, comment out the above
         # two lines and uncomment the line below (which listens on all interfaces):
         # ":6667":
@@ -772,9 +772,9 @@ datastore:
         port: 3306
         # if socket-path is set, it will be used instead of host:port
         #socket-path: "/var/run/mysqld/mysqld.sock"
-        user: "ergo"
-        password: "hunter2"
-        history-database: "ergo_history"
+        user: "__DB_USER__"
+        password: "__DB_PWD__"
+        history-database: "__DB_NAME__"
         timeout: 3s
         max-conns: 4
         # this may be necessary to prevent middleware from closing your connections:
