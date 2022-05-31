@@ -790,7 +790,7 @@ languages:
     default: __LANGUAGE__
 
     # which directory contains our language files
-    path: languages
+    path: "__FINALPATH__/languages"
 
 # limits - these need to be the same across the network
 limits:
