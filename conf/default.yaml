@@ -37,29 +37,27 @@ server:
         # The standard plaintext port for IRC is 6667. Allowing plaintext over the
         # public Internet poses serious security and privacy issues. Accordingly,
         # we recommend using plaintext only on local (loopback) interfaces:
-        "0.0.0.0:__PORT__": # (loopback ipv4)
-        "[::]:__PORT__":     # (loopback ipv6, localhost-only)
         # If you need to serve plaintext on public interfaces, comment out the above
         # two lines and uncomment the line below (which listens on all interfaces):
-        # ":6667":
+        # ":__PORT__":
         # Alternately, if you have a TLS certificate issued by a recognized CA,
         # you can configure port 6667 as an STS-only listener that only serves
         # "redirects" to the TLS port, but doesn't allow chat. See the manual
         # for details.
 
         # The standard SSL/TLS port for IRC is 6697. This will listen on all interfaces:
-        ":6697":
+        #":6697":
             # this is a standard TLS configuration with a single certificate;
             # see the manual for instructions on how to configure SNI
-            tls:
-                cert: "/etc/yunohost/certs/__DOMAIN__/crt.pem"
-                key: "/etc/yunohost/certs/__DOMAIN__/key.pem"
+        #    tls:
+        #        cert: "/etc/yunohost/certs/__DOMAIN__/crt.pem"
+        #        key: "/etc/yunohost/certs/__DOMAIN__/key.pem"
             # 'proxy' should typically be false. It's for cloud load balancers that
             # always send a PROXY protocol header ahead of the connection. See the
             # manual ("Reverse proxies") for more details.
-            proxy: false
+        #    proxy: false
             # set the minimum TLS version:
-            min-tls-version: 1.2
+        #    min-tls-version: 1.2
 
         # Example of a Unix domain socket for proxying:
         # "/tmp/ergo_sock":
