@@ -6,7 +6,7 @@
         "en": "A modern IRC server (daemon/ircd) written in Go",
         "fr": "A modern IRC server (daemon/ircd) written in Go"
     },
-    "version": "2.9.1~ynh1",
+    "version": "2.10.0~ynh1",
     "url": "https://ergo.chat/",
     "upstream": {
         "license": "MIT",
