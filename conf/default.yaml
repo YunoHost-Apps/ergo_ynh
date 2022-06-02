@@ -25,12 +25,12 @@
 # network configuration
 network:
     # name of the network
-    name: ErgoYunoHost
+    name: __NETWORK_NAME__
 
 # server configuration
 server:
     # server name
-    name: ergo.YunoHost
+    name: __SERVER_NAME__
 
     # addresses to listen on
     listeners:
@@ -111,7 +111,7 @@ server:
         duration: 1mo2d5m
 
         # tls port - you should be listening on this port above
-        port: 6697
+        port: __SECURE_PORT__
 
         # should clients include this STS policy when they ship their inbuilt preload lists?
         preload: false
