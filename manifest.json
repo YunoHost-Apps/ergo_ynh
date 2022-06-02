@@ -55,6 +55,16 @@
                 },
                 "choices": ["en", "en-AU", "el", "es", "fr-FR", "no", "pl", "pt-BR", "ro", "tr-TR", "zh-CN"],
                 "default": "fr-FR"
+            },
+            {
+                "name": "network_name",
+                "type": "string",
+                "default": "ErgoYunohost"
+            },
+            {
+                "name": "server_name",
+                "type": "string",
+                "default": "ergo.yunohost"
             }
         ]
     }
