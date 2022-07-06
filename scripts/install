@@ -27,10 +27,12 @@ ynh_abort_if_errors
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
+enable_ldap=$YNH_APP_ARG_ENABLE_LDAP
 language=$YNH_APP_ARG_LANGUAGE
 architecture=$YNH_ARCH
 network_name=$YNH_APP_ARG_NETWORK_NAME
 server_name=$YNH_APP_ARG_SERVER_NAME
+password=$YNH_APP_ARG_PASSWORD
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -125,7 +127,20 @@ ynh_add_nginx_config
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
+
 ynh_script_progression --message="Adding a configuration file..." --time --weight=1
+
+# Get Password Hash
+passwordhash=$((echo "$password"; echo "$password") | $final_path/ergo genpasswd)
+
+# Enable ldap authentication if necessary
+
+ldapoption=false
+
+if [ $enable_ldap -eq 1 ]
+then
+	ldapoption=true
+fi
 
 server=$domain
 ynh_add_config --template="../conf/default.yaml" --destination="$final_path/ircd.yaml"

@@ -65,6 +65,22 @@
                 "name": "server_name",
                 "type": "string",
                 "default": "ergo.yunohost"
+            },
+            {
+                "name": "password",
+                "type": "password",
+                "help": {
+                    "en": "Server admin password for using /OPER",
+                    "fr": "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
+                }
+            },
+            {
+                "name": "enable_ldap",
+                "type": "boolean",
+                "default": false,
+                "help": {
+                    "en": "Enable ldap authentication script"
+                }
             }
         ]
     }

@@ -396,7 +396,7 @@ accounts:
 
         # options for email verification of account registrations
         email-verification:
-            enabled: false
+            enabled: true
             sender: "ergoadmin@__DOMAIN__"
             require-tls: true
             helo-domain: "__DOMAIN__" # defaults to server name if unset
@@ -417,9 +417,9 @@ accounts:
             timeout: 60s
             # email-based password reset:
             password-reset:
-                enabled: false
+                enabled: true
                 # time before we allow resending the email
-                cooldown: 1h
+                cooldown: 4h
                 # time for which a password reset code is valid
                 timeout: 1d
 
@@ -429,10 +429,10 @@ accounts:
         enabled: true
 
         # window
-        duration:  1m
+        duration:  10m
 
         # number of attempts allowed within the window
-        max-attempts: 3
+        max-attempts: 5
 
     # some clients (notably Pidgin and Hexchat) offer only a single password field,
     # which makes it impossible to specify a separate server password (for the PASS
@@ -556,7 +556,7 @@ accounts:
     # pluggable authentication mechanism, via subprocess invocation
     # see the manual for details on how to write an authentication plugin script
     auth-script:
-        enabled: false
+        enabled: __LDAPOPTION__
         command: "__FINALPATH__/ergo-ldap"
         # constant list of args to pass to the command; the actual authentication
         # data is transmitted over stdin/stdout:
@@ -674,7 +674,7 @@ opers:
         # or by certificate fingerprint, or both. if a password hash is set, then a
         # password is required to oper up (e.g., /OPER dan mypassword). to generate
         # the hash, use `ergo genpasswd`.
-        password: "$2a$04$HR0neg/TjG015DvtvTo0He9t5H3iBeAfqKURnJ9iLs5FpETBhXS1K" #ergo@YunoHost
+        password: "__PASSWORDHASH__" #ergo@YunoHost
 
         # if a SHA-256 certificate fingerprint is configured here, then it will be
         # required to /OPER. if you comment out the password hash above, then you can
