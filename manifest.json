@@ -18,8 +18,8 @@
     },
     "license": "MIT",
     "maintainer": {
-        "name": "",
-        "email": ""
+        "name": "Navan Chauhan",
+        "email": "ergochat_ynh@navan.email"
     },
     "requirements": {
         "yunohost": ">= 4.3.0"
@@ -62,12 +62,18 @@
             {
                 "name": "network_name",
                 "type": "string",
-                "default": "ErgoYunohost"
+                "default": "ErgoYunohost",
+                "help": {
+                    "en": "Network Name"
+                }
             },
             {
                 "name": "server_name",
                 "type": "string",
-                "default": "ergo.yunohost"
+                "default": "ergo.yunohost",
+                "help": {
+                    "en": "Server Name"
+                }
             },
             {
                 "name": "password",
