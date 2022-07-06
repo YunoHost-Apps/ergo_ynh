@@ -31,6 +31,7 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+final_path_www=$(ynh_app_setting_get --app=$app --key=final_path_www)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
@@ -39,6 +40,9 @@ ynh_script_progression --message="Validating restoration parameters..." --weight
 
 test ! -d $final_path \
 	|| ynh_die --message="There is already a directory: $final_path "
+
+test ! -d $final_path_www \
+	|| ynh_die --message="There is already a directory: $final_path_www "
 
 #=================================================
 # STANDARD RESTORATION STEPS
@@ -63,10 +67,15 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 ynh_script_progression --message="Restoring the app main directory..." --weight=1
 
 ynh_restore_file --origin_path="$final_path"
+ynh_restore_file --origin_path="$final_path_www"
 
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
+
+chmod 750 "$final_path_www"
+chmod -R o-rwx "$final_path_www"
+chown -R $app:www-data "$final_path_www"
 
 #=================================================
 # SPECIFIC RESTORATION

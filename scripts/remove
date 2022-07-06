@@ -22,6 +22,7 @@ domain=$(ynh_app_setting_get --app=$app --key=domain)
 port=$(ynh_app_setting_get --app=$app --key=port)
 secure_port=$(ynh_app_setting_get --app=$app --key=secure_port)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+final_path_www=$(ynh_app_setting_get --app=$app --key=final_path_www)
 
 #=================================================
 # STANDARD REMOVE
@@ -59,6 +60,8 @@ ynh_script_progression --message="Removing app main directory..." --weight=1
 
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"
+
+ynh_secure_remove --file="$final_path_www"
 
 #=================================================
 # REMOVE NGINX CONFIGURATION
