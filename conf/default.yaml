@@ -396,7 +396,7 @@ accounts:
 
         # options for email verification of account registrations
         email-verification:
-            enabled: true
+            enabled: false
             sender: "ergoadmin@__DOMAIN__"
             require-tls: true
             helo-domain: "__DOMAIN__" # defaults to server name if unset
@@ -407,11 +407,11 @@ accounts:
             #     selector: "20200229"
             #     key-file: "dkim.pem"
             # to use an MTA/smarthost instead of sending email directly:
-            # mta:
-            #     server: localhost
-            #     port: 25
-            #     username: "admin"
-            #     password: "hunter2"
+            mta:
+                server: 127.0.0.1
+                port: 25
+                #username: ""
+                #password: ""
             blacklist-regexes:
             #    - ".*@mailinator.com"
             timeout: 60s
