@@ -78,10 +78,6 @@
             {
                 "name": "password",
                 "type": "password",
-                "ask": {
-                    "en": "Server admin password",
-                    "fr": "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
-                },
                 "help": {
                     "en": "For using /OPER admin"
                 }
