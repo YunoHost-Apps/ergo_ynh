@@ -6,7 +6,7 @@
         "en": "A modern IRC server (daemon/ircd) written in Go",
         "fr": "A modern IRC server (daemon/ircd) written in Go"
     },
-    "version": "2.9.1~ynh1",
+    "version": "2.10.0~ynh1",
     "url": "https://ergo.chat/",
     "upstream": {
         "license": "MIT",
@@ -18,8 +18,8 @@
     },
     "license": "MIT",
     "maintainer": {
-        "name": "",
-        "email": ""
+        "name": "Navan Chauhan",
+        "email": "ergochat_ynh@navan.email"
     },
     "requirements": {
         "yunohost": ">= 4.3.0"
@@ -44,7 +44,10 @@
             {
                 "name": "is_public",
                 "type": "boolean",
-                "default": true
+                "default": true,
+                "help": {
+                    "en": "Enable WebIRC For Public"
+                }
             },
             {
                 "name": "language",
@@ -55,6 +58,37 @@
                 },
                 "choices": ["en", "en-AU", "el", "es", "fr-FR", "no", "pl", "pt-BR", "ro", "tr-TR", "zh-CN"],
                 "default": "fr-FR"
+            },
+            {
+                "name": "network_name",
+                "type": "string",
+                "default": "ErgoYunohost",
+                "ask": {
+                    "en": "Network Name"
+                }
+            },
+            {
+                "name": "server_name",
+                "type": "string",
+                "default": "ergo.yunohost",
+                "ask": {
+                    "en": "Server Name"
+                }
+            },
+            {
+                "name": "password",
+                "type": "password",
+                "help": {
+                    "en": "For using /OPER admin"
+                }
+            },
+            {
+                "name": "enable_ldap",
+                "type": "boolean",
+                "default": false,
+                "ask": {
+                    "en": "Enable ldap authentication script"
+                }
             }
         ]
     }
