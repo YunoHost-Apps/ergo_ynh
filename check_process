@@ -3,16 +3,18 @@
 		domain="domain.tld"
 		path="/path"
 		is_public=1
-		language="fr"
-		admin="john"
+		language="en"
+		network_name="ErgoYunohost"
+		server_name="ergo.yunohost"
 		password="1Strong-Password"
+		enable_ldap=0
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=1
-		setup_root=1
+		setup_root=0
 		setup_nourl=0
-		setup_private=1
-		setup_public=1
+		setup_private=0
+		setup_public=0
 		upgrade=1
 		#upgrade=1	from_commit=CommitHash
 		backup_restore=1
