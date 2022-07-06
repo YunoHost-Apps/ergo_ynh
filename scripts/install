@@ -180,9 +180,15 @@ ynh_use_logrotate
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
+
+# Build the ports list
+needed_ports=()
+needed_ports+=( "$port" )
+needed_ports+=( "$secure_port" )
+
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" --needs_exposed_ports "$port"
+yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" ${needed_ports:+--needs_exposed_ports} "${needed_ports[@]}"
 
 #=================================================
 # START SYSTEMD SERVICE

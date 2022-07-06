@@ -34,6 +34,8 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$db_name
 final_path_www=$(ynh_app_setting_get --app=$app --key=final_path_www)
+port=$(ynh_app_setting_get --app=$app --key=port)
+secure_port=$(ynh_app_setting_get --app=$app --key=secure_port)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
@@ -108,7 +110,12 @@ ynh_restore_file --origin_path="/etc/logrotate.d/$app"
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" --needs_exposed_ports "$port"
+# Build the ports list
+needed_ports=()
+needed_ports+=( "$port" )
+needed_ports+=( "$secure_port" )
+
+yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" ${needed_ports:+--needs_exposed_ports} "${needed_ports[@]}"
 
 #=================================================
 # START SYSTEMD SERVICE
