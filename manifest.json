@@ -63,7 +63,7 @@
                 "name": "network_name",
                 "type": "string",
                 "default": "ErgoYunohost",
-                "help": {
+                "ask": {
                     "en": "Network Name"
                 }
             },
@@ -71,23 +71,26 @@
                 "name": "server_name",
                 "type": "string",
                 "default": "ergo.yunohost",
-                "help": {
+                "ask": {
                     "en": "Server Name"
                 }
             },
             {
                 "name": "password",
                 "type": "password",
-                "help": {
-                    "en": "Server admin password for using /OPER admin",
+                "ask": {
+                    "en": "Server admin password",
                     "fr": "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
+                },
+                "help": {
+                    "en": "For using /OPER admin"
                 }
             },
             {
                 "name": "enable_ldap",
                 "type": "boolean",
                 "default": false,
-                "help": {
+                "ask": {
                     "en": "Enable ldap authentication script"
                 }
             }
