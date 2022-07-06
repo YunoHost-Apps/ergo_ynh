@@ -25,30 +25,28 @@
 # network configuration
 network:
     # name of the network
-    name: ErgoTest
+    name: __NETWORK_NAME__
 
 # server configuration
 server:
     # server name
-    name: ergo.YunoHost
+    name: __SERVER_NAME__
 
     # addresses to listen on
     listeners:
         # The standard plaintext port for IRC is 6667. Allowing plaintext over the
         # public Internet poses serious security and privacy issues. Accordingly,
         # we recommend using plaintext only on local (loopback) interfaces:
-        "127.0.0.1:6667": # (loopback ipv4, localhost-only)
-        "[::1]:6667":     # (loopback ipv6, localhost-only)
         # If you need to serve plaintext on public interfaces, comment out the above
         # two lines and uncomment the line below (which listens on all interfaces):
-        # ":6667":
+        ":__PORT__":
         # Alternately, if you have a TLS certificate issued by a recognized CA,
         # you can configure port 6667 as an STS-only listener that only serves
         # "redirects" to the TLS port, but doesn't allow chat. See the manual
         # for details.
 
         # The standard SSL/TLS port for IRC is 6697. This will listen on all interfaces:
-        ":6697":
+        ":__SECURE_PORT__":
             # this is a standard TLS configuration with a single certificate;
             # see the manual for instructions on how to configure SNI
             tls:
@@ -113,7 +111,7 @@ server:
         duration: 1mo2d5m
 
         # tls port - you should be listening on this port above
-        port: 6697
+        port: __SECURE_PORT__
 
         # should clients include this STS policy when they ship their inbuilt preload lists?
         preload: false
@@ -169,7 +167,7 @@ server:
 
     # motd filename
     # if you change the motd, you should move it to ircd.motd
-    motd: ergo.motd
+    motd: ircd.motd
 
     # motd formatting codes
     # if this is true, the motd is escaped using formatting codes like $c, $b, and $i
@@ -399,9 +397,9 @@ accounts:
         # options for email verification of account registrations
         email-verification:
             enabled: false
-            sender: "admin@my.network"
+            sender: "ergoadmin@__DOMAIN__"
             require-tls: true
-            helo-domain: "my.network" # defaults to server name if unset
+            helo-domain: "__DOMAIN__" # defaults to server name if unset
             # options to enable DKIM signing of outgoing emails (recommended, but
             # requires creating a DNS entry for the public key):
             # dkim:
@@ -409,19 +407,19 @@ accounts:
             #     selector: "20200229"
             #     key-file: "dkim.pem"
             # to use an MTA/smarthost instead of sending email directly:
-            # mta:
-            #     server: localhost
-            #     port: 25
-            #     username: "admin"
-            #     password: "hunter2"
+            mta:
+                server: 127.0.0.1
+                port: 25
+                #username: ""
+                #password: ""
             blacklist-regexes:
             #    - ".*@mailinator.com"
             timeout: 60s
             # email-based password reset:
             password-reset:
-                enabled: false
+                enabled: true
                 # time before we allow resending the email
-                cooldown: 1h
+                cooldown: 4h
                 # time for which a password reset code is valid
                 timeout: 1d
 
@@ -431,10 +429,10 @@ accounts:
         enabled: true
 
         # window
-        duration:  1m
+        duration:  10m
 
         # number of attempts allowed within the window
-        max-attempts: 3
+        max-attempts: 5
 
     # some clients (notably Pidgin and Hexchat) offer only a single password field,
     # which makes it impossible to specify a separate server password (for the PASS
@@ -558,7 +556,7 @@ accounts:
     # pluggable authentication mechanism, via subprocess invocation
     # see the manual for details on how to write an authentication plugin script
     auth-script:
-        enabled: false
+        enabled: __LDAPOPTION__
         command: "__FINALPATH__/ergo-ldap"
         # constant list of args to pass to the command; the actual authentication
         # data is transmitted over stdin/stdout:
@@ -676,7 +674,7 @@ opers:
         # or by certificate fingerprint, or both. if a password hash is set, then a
         # password is required to oper up (e.g., /OPER dan mypassword). to generate
         # the hash, use `ergo genpasswd`.
-        password: "$2a$04$0123456789abcdef0123456789abcdef0123456789abcdef01234"
+        password: "__PASSWORDHASH__" #ergo@YunoHost
 
         # if a SHA-256 certificate fingerprint is configured here, then it will be
         # required to /OPER. if you comment out the password hash above, then you can
@@ -772,9 +770,9 @@ datastore:
         port: 3306
         # if socket-path is set, it will be used instead of host:port
         #socket-path: "/var/run/mysqld/mysqld.sock"
-        user: "ergo"
-        password: "hunter2"
-        history-database: "ergo_history"
+        user: "__DB_USER__"
+        password: "__DB_PWD__"
+        history-database: "__DB_NAME__"
         timeout: 3s
         max-conns: 4
         # this may be necessary to prevent middleware from closing your connections:
@@ -790,7 +788,7 @@ languages:
     default: __LANGUAGE__
 
     # which directory contains our language files
-    path: languages
+    path: "__FINALPATH__/languages"
 
 # limits - these need to be the same across the network
 limits:
