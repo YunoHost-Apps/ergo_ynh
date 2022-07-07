@@ -57,12 +57,12 @@
                     "fr": "Choisissez la langue de l'application"
                 },
                 "choices": ["en", "en-AU", "el", "es", "fr-FR", "no", "pl", "pt-BR", "ro", "tr-TR", "zh-CN"],
-                "default": "fr-FR"
+                "default": "en"
             },
             {
                 "name": "network_name",
                 "type": "string",
-                "default": "ErgoYunohost",
+                "default": "ErgoYunoHost",
                 "ask": {
                     "en": "Network Name"
                 }
