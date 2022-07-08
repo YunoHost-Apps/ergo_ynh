@@ -62,7 +62,7 @@
             {
                 "name": "network_name",
                 "type": "string",
-                "default": "ErgoYunohost",
+                "default": "ErgoYunoHost",
                 "ask": {
                     "en": "Network Name"
                 }
