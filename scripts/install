@@ -29,7 +29,6 @@ path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
 enable_ldap=$YNH_APP_ARG_ENABLE_LDAP
 language=$YNH_APP_ARG_LANGUAGE
-architecture=$YNH_ARCH
 network_name=$YNH_APP_ARG_NETWORK_NAME
 server_name=$YNH_APP_ARG_SERVER_NAME
 password=$YNH_APP_ARG_PASSWORD
@@ -105,7 +104,7 @@ ynh_script_progression --message="Setting up source files..." --weight=10
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$final_path" --source_id="$architecture"
+ynh_setup_source --dest_dir="$final_path" --source_id=$YNH_ARCH
 ynh_setup_source --dest_dir="$final_path" --source_id=ldap
 
 chmod 750 "$final_path"
