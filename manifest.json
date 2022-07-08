@@ -3,8 +3,8 @@
     "id": "ergo",
     "packaging_format": 1,
     "description": {
-        "en": "A modern IRC server (daemon/ircd) written in Go",
-        "fr": "A modern IRC server (daemon/ircd) written in Go"
+        "en": "Modern IRC server (daemon/ircd) written in Go",
+        "fr": "Serveur IRC moderne (démon/ircd) écrit en Go"
     },
     "version": "2.10.0~ynh2",
     "url": "https://ergo.chat/",
