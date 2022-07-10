@@ -29,6 +29,11 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 **Version incluse :** 2.10.0~ynh2
 
 **Démo :** https://testnet.ergo.chat/
+
+## Captures d'écran
+
+![Capture d'écran de Ergo](./doc/screenshots/textual.jpg)
+
 ## Avertissements / informations importantes
 
 * Known Limitations:
