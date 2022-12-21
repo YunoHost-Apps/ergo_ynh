@@ -4,25 +4,24 @@
 		path="/path"
 		is_public=1
 		language="en"
-		network_name="ErgoYunohost"
-		server_name="ergo.yunohost"
 		password="1Strong-Password"
 		enable_ldap=0
+		network_name="ErgoYunohost"
+		server_name="ergo.yunohost"
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=1
 		setup_root=1
 		setup_nourl=0
-		setup_private=0
+		setup_private=1
 		setup_public=1
 		upgrade=1
+		# 2.10.0~ynh2
+		upgrade=1	from_commit=3ae32de58fbb4d2c69d2eef68736bbf36bb67079
 		backup_restore=1
 		multi_instance=1
+		port_already_use=0
 		change_url=1
 ;;; Options
 Email=
 Notification=none
-;;; Upgrade options
-	; commit=
-		name=
-		manifest_arg=domain=DOMAIN&path=PATH&is_public=1&port=8080&

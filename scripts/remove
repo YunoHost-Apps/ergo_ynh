@@ -16,11 +16,11 @@ ynh_script_progression --message="Loading installation settings..." --weight=1
 
 app=$YNH_APP_INSTANCE_NAME
 
-db_name=$(ynh_sanitize_dbid --db_name=$app)
-db_user=$db_name
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 port=$(ynh_app_setting_get --app=$app --key=port)
 secure_port=$(ynh_app_setting_get --app=$app --key=secure_port)
+db_name=$(ynh_app_setting_get --app=$app --key=db_name)
+db_user=$db_name
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 final_path_www=$(ynh_app_setting_get --app=$app --key=final_path_www)
 
@@ -54,13 +54,20 @@ ynh_script_progression --message="Removing logrotate configuration..." --weight=
 ynh_remove_logrotate
 
 #=================================================
+# REMOVE THE MYSQL DATABASE
+#=================================================
+ynh_script_progression --message="Removing the MySQL database..." --weight=1
+
+# Remove a database if it exists, along with the associated user
+ynh_mysql_remove_db --db_user=$db_user --db_name=$db_name
+
+#=================================================
 # REMOVE APP MAIN DIR
 #=================================================
 ynh_script_progression --message="Removing app main directory..." --weight=1
 
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"
-
 ynh_secure_remove --file="$final_path_www"
 
 #=================================================
@@ -70,22 +77,6 @@ ynh_script_progression --message="Removing NGINX web server configuration..." --
 
 # Remove the dedicated NGINX config
 ynh_remove_nginx_config
-
-#=================================================
-# REMOVE THE MYSQL DATABASE
-#=================================================
-ynh_script_progression --message="Removing the MySQL database..." --weight=1
-
-# Remove a database if it exists, along with the associated user
-ynh_mysql_remove_db --db_user=$db_user --db_name=$db_name
-
-#=================================================
-# REMOVE DEPENDENCIES
-#=================================================
-#ynh_script_progression --message="Removing dependencies..." --weight=1
-
-# Remove metapackage and its dependencies
-#ynh_remove_app_dependencies
 
 #=================================================
 # CLOSE A PORT
