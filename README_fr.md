@@ -5,15 +5,15 @@ It shall NOT be edited by hand.
 
 # Ergo pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/ergo.svg)](https://dash.yunohost.org/appci/app/ergo) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/ergo.svg)](https://dash.yunohost.org/appci/app/ergo) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
 [![Installer Ergo avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer Ergo rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer Ergo rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core design 
 
@@ -26,13 +26,13 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 
 
-**Version incluse :** 2.10.0~ynh2
+**Version incluse :** 2.11.1~ynh1
 
 **Démo :** https://testnet.ergo.chat/
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de Ergo](./doc/screenshots/textual.jpg)
+![Capture d’écran de Ergo](./doc/screenshots/textual.jpg)
 
 ## Avertissements / informations importantes
 
@@ -44,10 +44,10 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://ergo.chat/>
+* Site officiel de l’app : <https://ergo.chat/>
 * Documentation officielle utilisateur : <https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md>
-* Documentation officielle de l'admin : <https://github.com/ergochat/ergo/blob/stable/docs/MANUAL.md>
-* Dépôt de code officiel de l'app : <https://github.com/ergochat/ergo>
+* Documentation officielle de l’admin : <https://github.com/ergochat/ergo/blob/stable/docs/MANUAL.md>
+* Dépôt de code officiel de l’app : <https://github.com/ergochat/ergo>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_ergo>
 * Signaler un bug : <https://github.com/YunoHost-Apps/ergo_ynh/issues>
 
@@ -63,4 +63,4 @@ ou
 sudo yunohost app upgrade ergo -u https://github.com/YunoHost-Apps/ergo_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
