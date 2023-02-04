@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/ergochat/ergo/releases/download/v2.10.0/ergo-2.10.0-linux-x86_64.tar.gz
-SOURCE_SUM=8ee98e8c391b587c9e9e2fd17c11ee031ab1cae8dfebf2ba5f05f69d83457b9d
+SOURCE_URL=https://github.com/ergochat/ergo/releases/download/v2.11.1/ergo-2.11.1-linux-x86_64.tar.gz
+SOURCE_SUM=0b7912be327260ae91c4e2580cd83bf2cd86212d569972406a0be0b0eca3ef30
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
