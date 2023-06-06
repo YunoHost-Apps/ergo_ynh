@@ -104,7 +104,7 @@ ynh_use_logrotate
 # Build the ports list
 needed_ports=()
 needed_ports+=( "$port" )
-needed_ports+=( "$secure_port" )
+needed_ports+=( "$port_secure" )
 
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 

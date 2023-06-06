@@ -74,7 +74,7 @@ ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 # Build the ports list
 needed_ports=()
 needed_ports+=( "$port" )
-needed_ports+=( "$secure_port" )
+needed_ports+=( "$port_secure" )
 
 yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" ${needed_ports:+--needs_exposed_ports} "${needed_ports[@]}"
 
