@@ -6,8 +6,8 @@ After=network.target
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/ergo run --conf __FINALPATH__/ircd.yaml
+WorkingDirectory=__INSTALL_DIR__/
+ExecStart=__INSTALL_DIR__/ergo run --conf __INSTALL_DIR__/ircd.yaml
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 

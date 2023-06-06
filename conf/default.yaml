@@ -557,10 +557,10 @@ accounts:
     # see the manual for details on how to write an authentication plugin script
     auth-script:
         enabled: __LDAPOPTION__
-        command: "__FINALPATH__/ergo-ldap"
+        command: "__INSTALL_DIR__/ergo-ldap"
         # constant list of args to pass to the command; the actual authentication
         # data is transmitted over stdin/stdout:
-        args: ["__FINALPATH__/ldap-config.yaml"]
+        args: ["__INSTALL_DIR__/ldap-config.yaml"]
         # should we automatically create users if the plugin returns success?
         autocreate: true
         # timeout for process execution, after which we send a SIGTERM:
@@ -788,7 +788,7 @@ languages:
     default: __LANGUAGE__
 
     # which directory contains our language files
-    path: "__FINALPATH__/languages"
+    path: "__INSTALL_DIR__/languages"
 
 # limits - these need to be the same across the network
 limits:
