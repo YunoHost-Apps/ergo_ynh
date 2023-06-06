@@ -35,14 +35,6 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 ![Screenshot of Ergo](./doc/screenshots/textual.jpg)
 
-## Disclaimers / important information
-
-* Known Limitations:
-    * WebIRC has not been setup correctly for now
-
-* Other Information
-    * Command to become operator is `/OPER admin password_set_during_install`
-
 ## Documentation and resources
 
 * Official app website: <https://ergo.chat/>
