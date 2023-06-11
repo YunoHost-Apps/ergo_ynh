@@ -111,7 +111,7 @@ server:
         duration: 1mo2d5m
 
         # tls port - you should be listening on this port above
-        port: __SECURE_PORT__
+        port: __PORT_SECURE__
 
         # should clients include this STS policy when they ship their inbuilt preload lists?
         preload: false
