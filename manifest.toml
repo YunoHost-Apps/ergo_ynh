@@ -37,6 +37,7 @@ ram.runtime = "50M"
 
     [install.init_main_permission]
     help.en = "Enable WebIRC For Public"
+    help.fr = "Activer WebIRC pour le public"
     type = "group"
     default = "visitors"
 
@@ -49,20 +50,24 @@ ram.runtime = "50M"
 
     [install.password]
     help.en = "For using /OPER admin"
+    help.fr = "Pour utiliser /OPER admin"
     type = "password"
 
     [install.enable_ldap]
-    ask.en = "Enable ldap authentication script"
+    ask.en = "Enable LDAP authentication script"
+    ask.fr = "Activer le script d'authentification LDAP"
     type = "boolean"
     default = false
 
     [install.network_name]
     ask.en = "Network Name"
+    ask.fr = "Nom du réseau"
     type = "string"
     default = "ErgoYunoHost"
 
     [install.server_name]
     ask.en = "Server Name"
+    ask.fr = "Nom du serveur"
     type = "string"
     default = "ergo.yunohost"
 
