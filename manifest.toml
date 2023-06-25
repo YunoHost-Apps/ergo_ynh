@@ -1,0 +1,107 @@
+packaging_format = 2
+
+id = "ergo"
+name = "Ergo"
+description.en = "Modern IRC server (daemon/ircd)"
+description.fr = "Serveur IRC moderne (démon/ircd)"
+
+version = "2.11.1~ynh1"
+
+maintainers = ["Navan Chauhan"]
+
+[upstream]
+license = "MIT"
+website = "https://ergo.chat/"
+demo = "https://testnet.ergo.chat/"
+admindoc = "https://github.com/ergochat/ergo/blob/stable/docs/MANUAL.md"
+userdoc = "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
+code = "https://github.com/ergochat/ergo"
+
+[integration]
+yunohost = ">= 11.1.19"
+architectures = ["amd64", "arm64","armhf",]
+multi_instance = true
+ldap = true
+sso = false
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/ergo"
+
+    [install.init_main_permission]
+    help.en = "Enable WebIRC For Public"
+    help.fr = "Activer WebIRC pour le public"
+    type = "group"
+    default = "visitors"
+
+    [install.language]
+    ask.en = "Choose the application language"
+    ask.fr = "Choisissez la langue de l'application"
+    type = "string"
+    choices = ["en", "en-AU", "el", "es", "fr-FR", "no", "pl", "pt-BR", "ro", "tr-TR", "zh-CN"]
+    default = "fr-FR"
+
+    [install.password]
+    help.en = "For using /OPER admin"
+    help.fr = "Pour utiliser /OPER admin"
+    type = "password"
+
+    [install.enable_ldap]
+    ask.en = "Enable LDAP authentication script"
+    ask.fr = "Activer le script d'authentification LDAP"
+    type = "boolean"
+    default = false
+
+    [install.network_name]
+    ask.en = "Network Name"
+    ask.fr = "Nom du réseau"
+    type = "string"
+    default = "ErgoYunoHost"
+
+    [install.server_name]
+    ask.en = "Server Name"
+    ask.fr = "Nom du serveur"
+    type = "string"
+    default = "ergo.yunohost"
+
+[resources]
+    [resources.sources]
+        [resources.sources.main]
+        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.11.1/ergo-2.11.1-linux-arm64.tar.gz"
+        arm64.sha256 = "9ab1408f12cbbad25917658dc40937c76f0da1cc44962d8b2336ce7c8cbc9420"
+        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.11.1/ergo-2.11.1-linux-x86_64.tar.gz"
+        amd64.sha256 = "0b7912be327260ae91c4e2580cd83bf2cd86212d569972406a0be0b0eca3ef30"
+        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.11.1/ergo-2.11.1-linux-armv6.tar.gz"
+        armhf.sha256 = "959d99c8b042c8113f11c0b0401e18bbac4dfec47fdc8277c6529531f2f27e3b"
+
+        [resources.sources.ldap]
+        url = "https://github.com/YunoHost-Apps/ergo_ynh/releases/download/v.1/ergo-ldap.zip"
+        sha256 = "4fa3e4511a5462e9a3b831db67d754d322fa1db41a708901dfae50fe3e959377"
+        in_subdir = false
+
+    [resources.ports]
+    main.default = 6667
+    main.exposed = "TCP"
+    secure.default = 6697
+    secure.exposed = "TCP"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+    dir = "/opt/yunohost/__APP__"
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "mariadb-server"
+
+    [resources.database]
+    type = "mysql"
