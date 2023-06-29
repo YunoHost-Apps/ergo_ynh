@@ -46,7 +46,7 @@ server:
         # for details.
 
         # The standard SSL/TLS port for IRC is 6697. This will listen on all interfaces:
-        ":__SECURE_PORT__":
+        ":__PORT_SECURE__":
             # this is a standard TLS configuration with a single certificate;
             # see the manual for instructions on how to configure SNI
             tls:
@@ -111,7 +111,7 @@ server:
         duration: 1mo2d5m
 
         # tls port - you should be listening on this port above
-        port: __SECURE_PORT__
+        port: __PORT_SECURE__
 
         # should clients include this STS policy when they ship their inbuilt preload lists?
         preload: false
@@ -557,10 +557,10 @@ accounts:
     # see the manual for details on how to write an authentication plugin script
     auth-script:
         enabled: __LDAPOPTION__
-        command: "__FINALPATH__/ergo-ldap"
+        command: "__INSTALL_DIR__/ergo-ldap"
         # constant list of args to pass to the command; the actual authentication
         # data is transmitted over stdin/stdout:
-        args: ["__FINALPATH__/ldap-config.yaml"]
+        args: ["__INSTALL_DIR__/ldap-config.yaml"]
         # should we automatically create users if the plugin returns success?
         autocreate: true
         # timeout for process execution, after which we send a SIGTERM:
@@ -788,7 +788,7 @@ languages:
     default: __LANGUAGE__
 
     # which directory contains our language files
-    path: "__FINALPATH__/languages"
+    path: "__INSTALL_DIR__/languages"
 
 # limits - these need to be the same across the network
 limits:
