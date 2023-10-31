@@ -41,7 +41,7 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 * Official user documentation: <https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md>
 * Official admin documentation: <https://github.com/ergochat/ergo/blob/stable/docs/MANUAL.md>
 * Upstream app code repository: <https://github.com/ergochat/ergo>
-* YunoHost documentation for this app: <https://yunohost.org/app_ergo>
+* YunoHost Store: <https://apps.yunohost.org/app/ergo>
 * Report a bug: <https://github.com/YunoHost-Apps/ergo_ynh/issues>
 
 ## Developer info
