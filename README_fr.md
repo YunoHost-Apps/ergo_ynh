@@ -16,15 +16,14 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core design 
+Ergo (anciennement connu sous le nom d'Oragono) est un serveur IRC moderne écrit en Go. Sa conception de base
 
-### Features
+### Caractéristiques
 
-- Being simple to set up and use
-- Combining the features of an ircd, a services framework, and a bouncer (integrated account management, history storage, and bouncer functionality)
-- Bleeding-edge IRCv3 support, suitable for use as an IRCv3 reference implementation
-- High customizability via a rehashable (i.e., reloadable at runtime) YAML config
-
+- Être simple à configurer et à utiliser
+- Combinant les fonctionnalités d'un ircd, d'un framework de services et d'un videur (gestion de compte intégrée, stockage de l'historique et fonctionnalité de videur)
+- Prise en charge IRCv3 de pointe, adaptée à une utilisation comme implémentation de référence IRCv3
+- Haute personnalisation via une configuration YAML réutilisable (c'est-à-dire rechargeable au moment de l'exécution)
 
 
 **Version incluse :** 2.11.1~ynh1
