@@ -55,6 +55,14 @@ ynh_add_systemd_config
 ynh_use_logrotate --non-append
 
 #=================================================
+# SPECIFIC SETUP
+#=================================================
+
+# adding the ergo dedicated user to the 'ssl-cert' group
+# to permit the use of the Let's Encrypt certs
+usermod -a -G ssl-cert "$app"
+
+#=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
