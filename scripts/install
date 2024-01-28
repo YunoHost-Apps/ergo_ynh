@@ -98,6 +98,14 @@ ynh_script_progression --message="Configuring log rotation..." --weight=2
 ynh_use_logrotate
 
 #=================================================
+# SPECIFIC SETUP
+#=================================================
+
+# adding the ergo dedicated user to the 'ssl-cert' group
+# to permit the use of the Let's Encrypt certs
+usermod -a -G ssl-cert "$app"
+
+#=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
 

@@ -48,23 +48,19 @@ ynh_script_progression --message="Upgrading NGINX web server configuration..." -
 # Create a dedicated NGINX config
 ynh_add_nginx_config
 
-#=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression --message="Upgrading systemd configuration..." --weight=1
-
 # Create a dedicated systemd config
 ynh_add_systemd_config
 
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1
-
 # Use logrotate to manage app-specific logfile(s)
 ynh_use_logrotate --non-append
+
+#=================================================
+# SPECIFIC SETUP
+#=================================================
+
+# adding the ergo dedicated user to the 'ssl-cert' group
+# to permit the use of the Let's Encrypt certs
+usermod -a -G ssl-cert "$app"
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST

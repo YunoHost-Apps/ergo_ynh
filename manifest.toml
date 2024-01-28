@@ -18,11 +18,14 @@ userdoc = "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
 code = "https://github.com/ergochat/ergo"
 
 [integration]
-yunohost = ">= 11.1.19"
+yunohost = ">= 11.2"
 architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
+
 ldap = true
+
 sso = false
+
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
@@ -44,7 +47,7 @@ ram.runtime = "50M"
     [install.language]
     ask.en = "Choose the application language"
     ask.fr = "Choisissez la langue de l'application"
-    type = "string"
+    type = "select"
     choices = ["en", "en-AU", "el", "es", "fr-FR", "no", "pl", "pt-BR", "ro", "tr-TR", "zh-CN"]
     default = "fr-FR"
 
@@ -80,6 +83,11 @@ ram.runtime = "50M"
         amd64.sha256 = "0b7912be327260ae91c4e2580cd83bf2cd86212d569972406a0be0b0eca3ef30"
         armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.11.1/ergo-2.11.1-linux-armv6.tar.gz"
         armhf.sha256 = "959d99c8b042c8113f11c0b0401e18bbac4dfec47fdc8277c6529531f2f27e3b"
+
+        autoupdate.strategy = "latest_github_release"
+        autoupdate.asset.arm64 = "^ergo-.*-linux-arm64.tar.gz"
+        autoupdate.asset.amd64 = "^ergo-.*-linux-x86_64.tar.gz"
+        autoupdate.asset.armhf = "^ergo-.*-linux-armv6.tar.gz"
 
         [resources.sources.ldap]
         url = "https://github.com/YunoHost-Apps/ergo_ynh/releases/download/v.1/ergo-ldap.zip"
