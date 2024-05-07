@@ -26,7 +26,7 @@ Ergo (anciennement connu sous le nom d'Oragono) est un serveur IRC moderne écri
 - Haute personnalisation via une configuration YAML réutilisable (c'est-à-dire rechargeable au moment de l'exécution)
 
 
-**Version incluse :** 2.13.0~ynh1
+**Version incluse :** 2.13.1~ynh1
 
 **Démo :** <https://testnet.ergo.chat/>
 

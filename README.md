@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install Ergo with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install Ergo quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -27,7 +27,7 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 
 
-**Shipped version:** 2.13.0~ynh1
+**Shipped version:** 2.13.1~ynh1
 
 **Demo:** <https://testnet.ergo.chat/>
 
