@@ -5,7 +5,7 @@ NON debe editarse manualmente.
 
 # Ergo para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/ergo.svg)](https://dash.yunohost.org/appci/app/ergo) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/ergo.svg)](https://ci-apps.yunohost.org/ci/apps/ergo/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
 
 [![Instalar Ergo con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 
@@ -27,7 +27,7 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 
 
-**Versión proporcionada:** 2.13.1~ynh1
+**Versión proporcionada:** 2.14.0~ynh1
 
 **Demo:** <https://testnet.ergo.chat/>
 
