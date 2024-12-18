@@ -18,7 +18,7 @@ Hij mag NIET handmatig aangepast worden.
 
 ## Overzicht
 
-Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core design 
+Ergo is a modern IRC server written in Go. Its core design 
 
 ### Features
 
