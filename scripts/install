@@ -12,7 +12,8 @@ ynh_app_setting_set --key=network_name --value="ErgoYunohost"
 server_name="ergo.yunohost"
 ynh_app_setting_set --key=server_name --value="ergo.yunohost"
 
-passwordhash=$(echo "$password"; echo "$password")
+passwordhash=$(echo "$password"; echo "$password") | $install_dir/ergo genpasswd
+
 server=$domain
 
 #=================================================
@@ -45,19 +46,12 @@ ynh_config_add --template="ldap-config.yaml" --destination="$install_dir/ldap-co
 ynh_config_add --template="ircd.motd" --destination="$install_dir/ircd.motd"
 
 #=================================================
-# SET PASSWORD
-#=================================================
-
-pushd "$install_dir"
- 	ynh_hide_warnings $install_dir/ergo genpasswd
-popd
-
-#=================================================
 # SETUP SYSTEMD
 #=================================================
 ynh_script_progression "Configuring $app's systemd service..."
 
 ynh_config_add_nginx
+
 ynh_config_add_systemd
 
 ynh_config_add_logrotate
