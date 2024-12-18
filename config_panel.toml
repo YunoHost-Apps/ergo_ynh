@@ -1,0 +1,32 @@
+version = "1.0"
+
+[main]
+name.en = "Ergo configuration"
+name.fr = "Configuration d'Ergo'"
+services = ["__APP__"]
+
+    [main.config]
+    name.en = "Configuration Options"
+    name.fr = "Options de configuration"
+
+        [main.config.network_name]
+        ask.en = "Network Name"
+        ask.fr = "Nom du réseau"
+        type = "string"
+        default = "ErgoYunoHost"
+        bind = "network_name:__INSTALL_DIR__/ircd.yaml"
+
+        [main.config.server_name]
+        ask.en = "Server Name"
+        ask.fr = "Nom du serveur"
+        type = "string"
+        default = "ergo.yunohost"
+        bind = "server_name:__INSTALL_DIR__/ircd.yaml"
+
+        [main.config.enable_ldap]
+        ask.en = "Enable LDAP authentication"
+        ask.fr = "Activer l'authentification LDAP"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+        bind = "enable_ldap:__INSTALL_DIR__/ircd.yaml"

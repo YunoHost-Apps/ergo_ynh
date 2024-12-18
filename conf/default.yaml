@@ -410,8 +410,8 @@ accounts:
             mta:
                 server: 127.0.0.1
                 port: 25
-                #username: ""
-                #password: ""
+                username: "__APP__"
+                password: "__MAIL_PWD__"
             blacklist-regexes:
             #    - ".*@mailinator.com"
             timeout: 60s
@@ -556,7 +556,7 @@ accounts:
     # pluggable authentication mechanism, via subprocess invocation
     # see the manual for details on how to write an authentication plugin script
     auth-script:
-        enabled: __LDAPOPTION__
+        enabled: __ENABLE_LDAP__
         command: "__INSTALL_DIR__/ergo-ldap"
         # constant list of args to pass to the command; the actual authentication
         # data is transmitted over stdin/stdout:

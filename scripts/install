@@ -3,6 +3,12 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
+enable_ldap=false
+network_name= "ErgoYunohost"
+server_name=  "ergo.yunohost"
+
+passwordhash=$(echo "$password"; echo "$password")
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
@@ -22,30 +28,10 @@ fi
 _ynh_replace_vars "$install_dir/help/index.html"
 
 #=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression "Configuring NGINX web server..."
-
-ynh_config_add_nginx
-
-#=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-# Get Password Hash
-passwordhash=$(echo "$password"; echo "$password") | $install_dir/ergo genpasswd)
-
-# Enable ldap authentication if necessary
-
-ldapoption=false
-
-if [ $enable_ldap -eq 1 ]
-then
-	ldapoption=true
-fi
-
-server=$domain
 ynh_config_add --template="default.yaml" --destination="$install_dir/ircd.yaml"
 
 ynh_config_add --template="ldap-config.yaml" --destination="$install_dir/ldap-config.yaml"
@@ -53,10 +39,19 @@ ynh_config_add --template="ldap-config.yaml" --destination="$install_dir/ldap-co
 ynh_config_add --template="ircd.motd" --destination="$install_dir/ircd.motd"
 
 #=================================================
+# SET PASSWORD
+#=================================================
+
+pushd "$install_dir"
+ 	ynh_hide_warnings $install_dir/ergo genpasswd
+popd
+
+#=================================================
 # SETUP SYSTEMD
 #=================================================
 ynh_script_progression "Configuring $app's systemd service..."
 
+ynh_config_add_nginx
 ynh_config_add_systemd
 
 ynh_config_add_logrotate
