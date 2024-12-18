@@ -13,6 +13,7 @@ server_name="ergo.yunohost"
 ynh_app_setting_set --key=server_name --value="ergo.yunohost"
 
 passwordhash=$(echo "$password"; echo "$password")
+server=$domain
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
