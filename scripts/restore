@@ -4,25 +4,11 @@ source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# CHECK IF THE APP CAN BE RESTORED
-#=================================================
-ynh_script_progression "Validating restoration parameters..."
-
-test ! -d $install_dir_www \
-	|| ynh_die "There is already a directory: $install_dir_www "
-
-#=================================================
 # RESTORE THE APP MAIN DIR
 #=================================================
 ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
-
-ynh_restore "$install_dir_www"
-
-chmod 750 "$install_dir_www"
-chmod -R o-rwx "$install_dir_www"
-chown -R $app:www-data "$install_dir_www"
 
 #=================================================
 # RESTORE THE MYSQL DATABASE
@@ -31,8 +17,6 @@ ynh_script_progression "Restoring the MySQL database..."
 
 ynh_mysql_db_shell < ./db.sql
 
-#=================================================
-# SPECIFIC RESTORATION
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
 #=================================================

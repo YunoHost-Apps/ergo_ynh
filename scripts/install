@@ -4,36 +4,22 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-ynh_script_progression "Validating installation parameters..."
-
-install_dir_www=/var/www/$app
-ynh_app_setting_set --key=install_dir_www --value=$install_dir_www
-
-test ! -e "$install_dir_www" || ynh_die "This path already contains a folder"
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id=ldap
 
 chmod +x "$install_dir/ergo"
 
 # Copy help file
-mkdir -p "$install_dir_www/help"
+mkdir -p "$install_dir/help"
 if test -e "$YNH_APP_BASEDIR/sources/help"; then
-    cp --archive "$YNH_APP_BASEDIR/sources/help/." "$install_dir_www/help"
+    cp --archive "$YNH_APP_BASEDIR/sources/help/." "$install_dir/help"
 fi
-_ynh_replace_vars "$install_dir_www/help/index.html"
 
-chmod 750 "$install_dir_www"
-chmod -R o-rwx "$install_dir_www"
-chown -R "www-data":"www-data" "$install_dir_www"
+_ynh_replace_vars "$install_dir/help/index.html"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -48,7 +34,7 @@ ynh_config_add_nginx
 ynh_script_progression "Adding $app's configuration..."
 
 # Get Password Hash
-#passwordhash=$((echo "$password"; echo "$password") | $install_dir/ergo genpasswd)
+passwordhash=$(echo "$password"; echo "$password") | $install_dir/ergo genpasswd)
 
 # Enable ldap authentication if necessary
 
@@ -61,11 +47,10 @@ fi
 
 server=$domain
 ynh_config_add --template="default.yaml" --destination="$install_dir/ircd.yaml"
-ynh_config_add --template="ldap-config.yaml" --destination="$install_dir/ldap-config.yaml"
-ynh_config_add --template="ircd.motd" --destination="$install_dir/ircd.motd"
 
-chmod 400 "$install_dir/ircd.yaml"
-chown $app: "$install_dir/ircd.yaml"
+ynh_config_add --template="ldap-config.yaml" --destination="$install_dir/ldap-config.yaml"
+
+ynh_config_add --template="ircd.motd" --destination="$install_dir/ircd.motd"
 
 #=================================================
 # SETUP SYSTEMD

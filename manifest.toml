@@ -24,7 +24,6 @@ architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
 
 ldap = true
-
 sso = false
 
 disk = "50M"
@@ -104,8 +103,6 @@ ram.runtime = "50M"
     [resources.system_user]
 
     [resources.install_dir]
-    group = "www-data:r-x"
-    dir = "/opt/yunohost/__APP__"
 
     [resources.permissions]
     main.url = "/"
