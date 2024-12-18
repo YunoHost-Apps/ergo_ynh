@@ -18,7 +18,7 @@ userdoc = "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
 code = "https://github.com/ergochat/ergo"
 
 [integration]
-yunohost = ">= 12.0.30"
+yunohost = ">= 12.0.8"
 helpers_version = "2.1"
 architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
@@ -82,7 +82,7 @@ ram.runtime = "50M"
 
     [resources.system_user]
     allow_email = true
-    
+
     [resources.install_dir]
 
     [resources.permissions]
