@@ -3,9 +3,9 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
-enable_ldap=false
-network_name= "ErgoYunohost"
-server_name=  "ergo.yunohost"
+enable_ldap = false
+network_name = "ErgoYunohost"
+server_name =  "ergo.yunohost"
 
 passwordhash=$(echo "$password"; echo "$password")
 

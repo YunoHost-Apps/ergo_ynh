@@ -11,6 +11,20 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service=$app --action="stop"
 
 #=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression "Ensuring downward compatibility..."
+
+# If enable_ldap doesn't exist, create it
+ynh_app_setting_set_default --key=enable_ldap --value="$false"
+
+# If network_name doesn't exist, create it
+ynh_app_setting_set_default --key=network_name --value="ErgoYunohost"
+
+# If server_name doesn't exist, create it
+ynh_app_setting_set_default --key=server_name --value="ergo.yunohost"
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
