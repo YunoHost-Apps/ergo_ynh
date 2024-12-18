@@ -29,6 +29,8 @@ systemctl enable $app.service --quiet
 
 ynh_restore "/etc/logrotate.d/$app"
 
+yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" --needs_exposed_ports=$port --needs_exposed_ports=$port_secure
+
 #=================================================
 # SPECIFIC SETUP
 #=================================================
@@ -36,18 +38,6 @@ ynh_restore "/etc/logrotate.d/$app"
 # adding the ergo dedicated user to the 'ssl-cert' group
 # to permit the use of the Let's Encrypt certs
 usermod -a -G ssl-cert "$app"
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression "Integrating service in YunoHost..."
-
-# Build the ports list
-needed_ports=()
-needed_ports+=( "$port" )
-needed_ports+=( "$port_secure" )
-
-yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" ${needed_ports:+--needs_exposed_ports} "${needed_ports[@]}"
 
 #=================================================
 # START SYSTEMD SERVICE
