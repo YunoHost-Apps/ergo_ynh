@@ -27,6 +27,4 @@ services = ["__APP__"]
         ask.en = "Enable LDAP authentication"
         ask.fr = "Activer l'authentification LDAP"
         type = "boolean"
-        yes = "true"
-        no = "false"
         bind = "enable_ldap:__INSTALL_DIR__/ircd.yaml"
