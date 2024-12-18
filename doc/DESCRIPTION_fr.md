@@ -1,4 +1,4 @@
-Ergo (anciennement connu sous le nom d'Oragono) est un serveur IRC moderne écrit en Go. Sa conception de base
+Ergo est un serveur IRC moderne écrit en Go. Sa conception de base
 
 ### Caractéristiques
 

@@ -22,9 +22,6 @@ ynh_script_progression "Setting up source files..."
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id=ldap
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 750 "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 chmod +x "$install_dir/ergo"
 
 # Copy help file
@@ -43,18 +40,15 @@ chown -R "www-data":"www-data" "$install_dir_www"
 #=================================================
 ynh_script_progression "Configuring NGINX web server..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
-#=================================================
-# SPECIFIC SETUP
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
 # Get Password Hash
-passwordhash=$((echo "$password"; echo "$password") | $install_dir/ergo genpasswd)
+#passwordhash=$((echo "$password"; echo "$password") | $install_dir/ergo genpasswd)
 
 # Enable ldap authentication if necessary
 
@@ -78,16 +72,11 @@ chown $app: "$install_dir/ircd.yaml"
 #=================================================
 ynh_script_progression "Configuring $app's systemd service..."
 
-# Create a dedicated systemd config
 ynh_config_add_systemd
 
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression "Configuring log rotation..."
-
-# Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
+
+yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" ${needed_ports:+--needs_exposed_ports} "${needed_ports[@]}"
 
 #=================================================
 # SPECIFIC SETUP
@@ -106,16 +95,11 @@ needed_ports=()
 needed_ports+=( "$port" )
 needed_ports+=( "$port_secure" )
 
-ynh_script_progression "Integrating service in YunoHost..."
-
-yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" ${needed_ports:+--needs_exposed_ports} "${needed_ports[@]}"
-
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
 ynh_systemctl --service=$app --action="start"
 
 #=================================================

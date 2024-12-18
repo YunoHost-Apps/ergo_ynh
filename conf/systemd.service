@@ -1,5 +1,5 @@
 [Unit]
-Description=Ergo
+Description=Ergo: IRC server
 After=network.target
 
 [Service]
