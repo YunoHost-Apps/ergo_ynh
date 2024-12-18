@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # Ergo para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/ergo.svg)](https://ci-apps.yunohost.org/ci/apps/ergo/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/ergo)](https://ci-apps.yunohost.org/ci/apps/ergo/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/ergo)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/ergo)
 
 [![Instalar Ergo con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 

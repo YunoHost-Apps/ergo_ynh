@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # Ergo YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/ergo.svg)](https://ci-apps.yunohost.org/ci/apps/ergo/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/ergo)](https://ci-apps.yunohost.org/ci/apps/ergo/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/ergo)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/ergo)
 
 [![Instalatu Ergo YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 
