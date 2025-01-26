@@ -29,7 +29,7 @@ Ergo is a modern IRC server written in Go. Its core design
 
 
 
-**Поставляемая версия:** 2.14.0~ynh2
+**Поставляемая версия:** 2.15.0~ynh1
 
 **Демо-версия:** <https://testnet.ergo.chat/>
 
