@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -15,10 +19,15 @@ ynh_app_setting_set --key=server_name --value="ergo.yunohost"
 server=$domain
 
 #=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
 
+# Download, check integrity, uncompress and patch the source from manifest.toml
 ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir" --source_id=ldap
 
@@ -32,12 +41,12 @@ fi
 
 _ynh_replace_vars "$install_dir/help/index.html"
 
-passwordhash=$(echo "$password"; echo "$password") | $install_dir/ergo genpasswd
+passwordhash=$((echo "$password"; echo "$password") | $install_dir/ergo genpasswd)
 
 #=================================================
-# ADD A CONFIGURATION
+# APP INITIAL CONFIGURATION
 #=================================================
-ynh_script_progression "Adding $app's configuration..."
+ynh_script_progression "Adding $app's configuration files..."
 
 ynh_config_add --template="default.yaml" --destination="$install_dir/ircd.yaml"
 
@@ -46,17 +55,19 @@ ynh_config_add --template="ldap-config.yaml" --destination="$install_dir/ldap-co
 ynh_config_add --template="ircd.motd" --destination="$install_dir/ircd.motd"
 
 #=================================================
-# SETUP SYSTEMD
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression "Configuring $app's systemd service..."
+ynh_script_progression "Adding system configurations related to $app..."
 
+# Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_config_add_nginx
 
+# Create a dedicated systemd config
 ynh_config_add_systemd
+yunohost service add "$app" --description="A modern IRC server" --log="/var/log/$app/$app.log" --needs_exposed_ports=$port --needs_exposed_ports=$port_secure
 
+# Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
-
-yunohost service add $app --description="A modern IRC server" --log="/var/log/$app/$app.log" --needs_exposed_ports=$port --needs_exposed_ports=$port_secure
 
 #=================================================
 # SPECIFIC SETUP
@@ -71,7 +82,8 @@ usermod -a -G ssl-cert "$app"
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start"
+# Start a systemd service
+ynh_systemctl --service="$app" --action="start"
 
 #=================================================
 # END OF SCRIPT

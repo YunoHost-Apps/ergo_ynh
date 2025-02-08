@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
 packaging_format = 2
 
 id = "ergo"
@@ -24,6 +26,7 @@ architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
 
 ldap = true
+
 sso = false
 
 disk = "50M"
@@ -56,29 +59,23 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources]
-        [resources.sources.main]
-        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-arm64.tar.gz"
-        arm64.sha256 = "5795550d8306e2d71ecd5ca1e63f6c6c6779d2404e4d05f4d9fbf7c92850a2a6"
-        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-x86_64.tar.gz"
-        amd64.sha256 = "febb825c99ddab09d9532ff0b562a14253edea05678cb5ebf901fa94d419203c"
-        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-armv6.tar.gz"
-        armhf.sha256 = "3fe4eccfa1798b3b4589e57158a248890c47c1817c6cfbeb74eef70ee672491a"
+    [resources.sources.main]
+    arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-arm64.tar.gz"
+    arm64.sha256 = "5795550d8306e2d71ecd5ca1e63f6c6c6779d2404e4d05f4d9fbf7c92850a2a6"
+    amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-x86_64.tar.gz"
+    amd64.sha256 = "febb825c99ddab09d9532ff0b562a14253edea05678cb5ebf901fa94d419203c"
+    armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-armv6.tar.gz"
+    armhf.sha256 = "3fe4eccfa1798b3b4589e57158a248890c47c1817c6cfbeb74eef70ee672491a"
 
-        autoupdate.strategy = "latest_github_release"
-        autoupdate.asset.arm64 = "^ergo-.*-linux-arm64.tar.gz"
-        autoupdate.asset.amd64 = "^ergo-.*-linux-x86_64.tar.gz"
-        autoupdate.asset.armhf = "^ergo-.*-linux-armv6.tar.gz"
+    autoupdate.strategy = "latest_github_release"
+    autoupdate.asset.arm64 = "^ergo-.*-linux-arm64.tar.gz"
+    autoupdate.asset.amd64 = "^ergo-.*-linux-x86_64.tar.gz"
+    autoupdate.asset.armhf = "^ergo-.*-linux-armv6.tar.gz"
 
-        [resources.sources.ldap]
-        url = "https://github.com/YunoHost-Apps/ergo_ynh/releases/download/v.1/ergo-ldap.zip"
-        sha256 = "4fa3e4511a5462e9a3b831db67d754d322fa1db41a708901dfae50fe3e959377"
-        in_subdir = false
-
-    [resources.ports]
-    main.default = 6667
-    main.exposed = "TCP"
-    secure.default = 6697
-    secure.exposed = "TCP"
+    [resources.sources.ldap]
+    url = "https://github.com/YunoHost-Apps/ergo_ynh/releases/download/v.1/ergo-ldap.zip"
+    sha256 = "4fa3e4511a5462e9a3b831db67d754d322fa1db41a708901dfae50fe3e959377"
+    in_subdir = false
 
     [resources.system_user]
     allow_email = true
@@ -87,6 +84,12 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
+
+    [resources.ports]
+    main.default = 6667
+    main.exposed = "TCP"
+    secure.default = 6697
+    secure.exposed = "TCP"
 
     [resources.apt]
     packages = "mariadb-server"
