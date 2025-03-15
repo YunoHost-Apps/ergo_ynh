@@ -5,7 +5,9 @@
 
 # YunoHost 上的 Ergo
 
-[![集成程度](https://dash.yunohost.org/integration/ergo.svg)](https://ci-apps.yunohost.org/ci/apps/ergo/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/ergo)](https://ci-apps.yunohost.org/ci/apps/ergo/)
+![工作状态](https://apps.yunohost.org/badge/state/ergo)
+![维护状态](https://apps.yunohost.org/badge/maintained/ergo)
 
 [![使用 YunoHost 安装 Ergo](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 
