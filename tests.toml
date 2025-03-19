@@ -1,11 +1,23 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/tests.v1.schema.json
+
 test_format = 1.0
 
 [default]
+
+    # ------------
+    # Tests to run
+    # ------------
 
     # -------------------------------
     # Default args to use for install
     # -------------------------------
 
-    	args.enable_ldap = 0
-		args.network_name = "ErgoYunohost"
-		args.server_name = "ergo.yunohost"
+    args.enable_ldap = 0
+    args.network_name = "ErgoYunohost"
+    args.server_name = "ergo.yunohost"
+
+    # -------------------------------
+    # Commits to test upgrade from
+    # -------------------------------
+
+    # test_upgrade_from.00a1a6e7.name = "Upgrade from 5.4"

@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # Ergo para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/ergo.svg)](https://ci-apps.yunohost.org/ci/apps/ergo/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/ergo.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/ergo.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/ergo)](https://ci-apps.yunohost.org/ci/apps/ergo/)
+![Estado funcional](https://apps.yunohost.org/badge/state/ergo)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/ergo)
 
 [![Instalar Ergo con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=ergo)
 
@@ -27,7 +29,7 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 
 
-**Versión actual:** 2.14.0~ynh1
+**Versión actual:** 2.15.0~ynh1
 
 **Demo:** <https://testnet.ergo.chat/>
 
@@ -46,7 +48,7 @@ Ergo (formerly known as Oragono) is a modern IRC server written in Go. Its core 
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/ergo_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/ergo_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
