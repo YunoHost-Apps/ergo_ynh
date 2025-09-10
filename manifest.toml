@@ -18,13 +18,12 @@ userdoc = "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
 code = "https://github.com/ergochat/ergo"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
 
 ldap = true
-
 sso = false
 
 disk = "50M"

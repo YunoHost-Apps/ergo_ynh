@@ -19,19 +19,13 @@ ynh_backup "$install_dir_www"
 
 ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
 
-#=================================================
-# SPECIFIC BACKUP
+ynh_backup "/etc/systemd/system/$app.service"
+
 #=================================================
 # BACKUP LOGROTATE
 #=================================================
 
 ynh_backup "/etc/logrotate.d/$app"
-
-#=================================================
-# BACKUP SYSTEMD
-#=================================================
-
-ynh_backup "/etc/systemd/system/$app.service"
 
 #=================================================
 # BACKUP THE MYSQL DATABASE
