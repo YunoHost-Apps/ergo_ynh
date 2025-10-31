@@ -5,7 +5,7 @@ name = "Ergo"
 description.en = "Modern IRC server (daemon/ircd)"
 description.fr = "Serveur IRC moderne (démon/ircd)"
 
-version = "2.15.0~ynh1"
+version = "2.16.0~ynh1"
 
 maintainers = ["Navan Chauhan"]
 
@@ -18,7 +18,8 @@ userdoc = "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
 code = "https://github.com/ergochat/ergo"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 11.2.18"
+helpers_version = "2.1"
 architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
 
@@ -77,12 +78,12 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-arm64.tar.gz"
-        arm64.sha256 = "5795550d8306e2d71ecd5ca1e63f6c6c6779d2404e4d05f4d9fbf7c92850a2a6"
-        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-x86_64.tar.gz"
-        amd64.sha256 = "febb825c99ddab09d9532ff0b562a14253edea05678cb5ebf901fa94d419203c"
-        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.15.0/ergo-2.15.0-linux-armv6.tar.gz"
-        armhf.sha256 = "3fe4eccfa1798b3b4589e57158a248890c47c1817c6cfbeb74eef70ee672491a"
+        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.16.0/ergo-2.16.0-linux-arm64.tar.gz"
+        arm64.sha256 = "07f46d40dabd0a474708fcc7fef16a305abe22ddb1a8a5ba4d2cc2e89c78c6a6"
+        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.16.0/ergo-2.16.0-linux-x86_64.tar.gz"
+        amd64.sha256 = "481bee80335b5d6789660de0ecb326ff6142b906acc176ef1238a24e260a48b0"
+        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.16.0/ergo-2.16.0-linux-armv6.tar.gz"
+        armhf.sha256 = "ac3250d22c52addbc704d8853f09ec56e0d7602228b1a74addf00ac1999c9d30"
 
         autoupdate.strategy = "latest_github_release"
         autoupdate.asset.arm64 = "^ergo-.*-linux-arm64.tar.gz"
@@ -103,6 +104,7 @@ ram.runtime = "50M"
     [resources.system_user]
 
     [resources.install_dir]
+    group = "www-data:r-x"
     dir = "/opt/yunohost/__APP__"
 
     [resources.permissions]
