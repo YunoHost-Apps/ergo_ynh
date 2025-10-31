@@ -25,8 +25,8 @@ chmod +x "$install_dir/ergo"
 
 # Copy help file
 mkdir -p "$install_dir_www/help"
-if test -e "$YNH_APP_BASEDIR/sources/help"; then
-    cp --archive "$YNH_APP_BASEDIR/sources/help/." "$install_dir_www/help"
+if test -e "$YNH_APP_BASEDIR/sources/extra_files/help"; then
+    cp --archive "$YNH_APP_BASEDIR/sources/extra_files/help/." "$install_dir_www/help"
 fi
 _ynh_replace_vars "$install_dir_www/help/index.html"
 
