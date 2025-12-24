@@ -5,7 +5,7 @@ name = "Ergo"
 description.en = "Modern IRC server (daemon/ircd)"
 description.fr = "Serveur IRC moderne (démon/ircd)"
 
-version = "2.16.0~ynh1"
+version = "2.17.0~ynh1"
 
 maintainers = ["Navan Chauhan"]
 
@@ -78,12 +78,12 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.16.0/ergo-2.16.0-linux-arm64.tar.gz"
-        arm64.sha256 = "07f46d40dabd0a474708fcc7fef16a305abe22ddb1a8a5ba4d2cc2e89c78c6a6"
-        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.16.0/ergo-2.16.0-linux-x86_64.tar.gz"
-        amd64.sha256 = "481bee80335b5d6789660de0ecb326ff6142b906acc176ef1238a24e260a48b0"
-        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.16.0/ergo-2.16.0-linux-armv6.tar.gz"
-        armhf.sha256 = "ac3250d22c52addbc704d8853f09ec56e0d7602228b1a74addf00ac1999c9d30"
+        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.17.0/ergo-2.17.0-linux-arm64.tar.gz"
+        arm64.sha256 = "7eb8cf8a91c64a16cd39d6b6c64d804d8bfe5e7bb399a2a22a9ba9b4e309297b"
+        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.17.0/ergo-2.17.0-linux-x86_64.tar.gz"
+        amd64.sha256 = "f5f1fc3e3fc901bee40aface6f0f4777f495c60b9cf0abb0395912bd91119524"
+        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.17.0/ergo-2.17.0-linux-armv6.tar.gz"
+        armhf.sha256 = "1a742c6c789601d87ec291c98290d5a8e8444d2d764273638883b6b88d02246f"
 
         autoupdate.strategy = "latest_github_release"
         autoupdate.asset.arm64 = "^ergo-.*-linux-arm64.tar.gz"
