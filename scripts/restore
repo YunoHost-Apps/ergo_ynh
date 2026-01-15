@@ -7,8 +7,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Validating restoration parameters..."
 
-test ! -d $install_dir_www \
-	|| ynh_die "There is already a directory: $install_dir_www "
+test ! -d $install_dir_www || ynh_die "There is already a directory: $install_dir_www "
 
 #=================================================
 # RESTORE THE APP MAIN DIR
