@@ -94,12 +94,6 @@ ram.runtime = "50M"
         sha256 = "4fa3e4511a5462e9a3b831db67d754d322fa1db41a708901dfae50fe3e959377"
         in_subdir = false
 
-    [resources.ports]
-    main.default = 6667
-    main.exposed = "TCP"
-    secure.default = 6697
-    secure.exposed = "TCP"
-
     [resources.system_user]
 
     [resources.install_dir]
@@ -109,6 +103,12 @@ ram.runtime = "50M"
     [resources.permissions]
     main.url = "/"
 
+    [resources.ports]
+    main.default = 6667
+    main.exposed = "TCP"
+    secure.default = 6697
+    secure.exposed = "TCP"
+    
     [resources.apt]
     packages = "mariadb-server"
 
