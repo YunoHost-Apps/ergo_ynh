@@ -5,7 +5,7 @@ name = "Ergo"
 description.en = "Modern IRC server (daemon/ircd)"
 description.fr = "Serveur IRC moderne (démon/ircd)"
 
-version = "2.17.0~ynh1"
+version = "2.18.0~ynh1"
 
 maintainers = ["Navan Chauhan"]
 
@@ -18,13 +18,12 @@ userdoc = "https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
 code = "https://github.com/ergochat/ergo"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = ["amd64", "arm64","armhf",]
 multi_instance = true
 
 ldap = true
-
 sso = false
 
 disk = "50M"
@@ -78,12 +77,12 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.17.0/ergo-2.17.0-linux-arm64.tar.gz"
-        arm64.sha256 = "7eb8cf8a91c64a16cd39d6b6c64d804d8bfe5e7bb399a2a22a9ba9b4e309297b"
-        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.17.0/ergo-2.17.0-linux-x86_64.tar.gz"
-        amd64.sha256 = "f5f1fc3e3fc901bee40aface6f0f4777f495c60b9cf0abb0395912bd91119524"
-        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.17.0/ergo-2.17.0-linux-armv6.tar.gz"
-        armhf.sha256 = "1a742c6c789601d87ec291c98290d5a8e8444d2d764273638883b6b88d02246f"
+        arm64.url = "https://github.com/ergochat/ergo/releases/download/v2.18.0/ergo-2.18.0-linux-arm64.tar.gz"
+        arm64.sha256 = "d84188afae05bcbc3d01c18e4d62f0a5a395065b518d86c430ce75cc625fac63"
+        amd64.url = "https://github.com/ergochat/ergo/releases/download/v2.18.0/ergo-2.18.0-linux-x86_64.tar.gz"
+        amd64.sha256 = "cbd888d9f89224eced6af76dae4b729eaa41ea04afd2e85fe9be8169a790a1da"
+        armhf.url = "https://github.com/ergochat/ergo/releases/download/v2.18.0/ergo-2.18.0-linux-armv6.tar.gz"
+        armhf.sha256 = "d8553b6797133b6e276a819d8b15d2bd06df8925b66816581fdc830b91f51eeb"
 
         autoupdate.strategy = "latest_github_release"
         autoupdate.asset.arm64 = "^ergo-.*-linux-arm64.tar.gz"
@@ -95,12 +94,6 @@ ram.runtime = "50M"
         sha256 = "4fa3e4511a5462e9a3b831db67d754d322fa1db41a708901dfae50fe3e959377"
         in_subdir = false
 
-    [resources.ports]
-    main.default = 6667
-    main.exposed = "TCP"
-    secure.default = 6697
-    secure.exposed = "TCP"
-
     [resources.system_user]
 
     [resources.install_dir]
@@ -110,6 +103,12 @@ ram.runtime = "50M"
     [resources.permissions]
     main.url = "/"
 
+    [resources.ports]
+    main.default = 6667
+    main.exposed = "TCP"
+    secure.default = 6697
+    secure.exposed = "TCP"
+    
     [resources.apt]
     packages = "mariadb-server"
 
